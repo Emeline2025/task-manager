@@ -2,6 +2,13 @@
 
 ## Installation & usage
 
+### pre commit management
+
+- create a venv
+- Install 'pre-commit'
+- Enable Pre-commit : 'pre-commit install'
+
+
 ### Backend
 
 ```bash
