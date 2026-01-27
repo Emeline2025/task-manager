@@ -12,5 +12,11 @@ jobs:
     - uses: actions/checkout@v3
     - uses: actions/setup-python@v3
     - uses: pre-commit/action@v3.0.1
-    - uses: aquasecurity/trivy-action@0.68.2
-    - run: trivy fs --format cyclonedx --output result.json ./task-manager/ --scanners vuln
+    - name: Run Trivy vulnerability scanner in fs mode
+      uses: aquasecurity/trivy-action@0.33.1
+      with:
+        scan-type: 'fs'
+        format: cyclonedx
+        output: result.json
+        path: ./task-manager/
+        scanners: vuln
