@@ -16,6 +16,6 @@ jobs:
       uses: aquasecurity/trivy-action@0.33.1
       with:
         scan-type: 'fs'
-        format: table
-        output: trivy-result.json
         scan-ref: './task-manager'
+        format: 'table'
+        output: 'trivy-results.cdx'
