@@ -10,6 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
+    - name: Build image
+      run: docker build -t nginx_src .
     - name: Run Checkov vulnerability scanner for the backend
       uses: nginxinc/nginx-unprivileged@alpine3.22-perl
       with:
