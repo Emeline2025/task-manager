@@ -1,0 +1,18 @@
+name: snyk
+
+on:
+    pull_request:
+    push:
+        branches: [main]
+
+jobs:
+    security:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v4 # Installation de Snyk via l'action officielle
+            - name: Run Snyk to check for vulnerabilities
+              uses: snyk/actions/node@master
+              env:
+                SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}  #TODO
+              with:
+                args: test
