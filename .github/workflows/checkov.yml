@@ -1,0 +1,20 @@
+name: checkov
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Run Checkov vulnerability scanner for the backend
+      uses: nginxinc/nginx-unprivileged@alpine3.22-perl
+      with:
+        scan-type: '-f backend/Dockerfile'
+    - name: Run Checkov vulnerability scanner for the frontend
+      uses: nginxinc/nginx-unprivileged@alpine3.22-perl
+      with:
+        scan-type: '-f frontend/Dockerfile'
