@@ -1,6 +1,9 @@
 # Databases
 *.db
 
+# Mkdocs
+mkdocs/site/*
+
 # Python
 _pycache_/
 *._pyc
