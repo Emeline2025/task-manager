@@ -1,0 +1,17 @@
+site_name: Documentation du projet task-manager
+site_url: http://localhost:8000
+site_description: Documentation technique et fonctionnelle du projet Task Manager
+
+theme:
+  name: material
+  language: fr
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: deep purple
+nav:
+  - Accueil: index.md
+  - Workflow: workflow.md
+  - Backend:
+    - app: backend/app.md
+  - Frontend: frontend.md

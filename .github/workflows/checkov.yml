@@ -1,0 +1,28 @@
+name: checkov
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  checkov:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python 3.9
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v6.18.0
+      with:
+        context: ./backend
+    - name: Run Checkov action
+      uses: bridgecrewio/checkov-action@master
+      with:
+        file: ./backend/Dockerfile
+    - name: Run Checkov vulnerability scanner for the frontend
+      uses: bridgecrewio/checkov-action@master
+      with:
+        file: ./frontend/Dockerfile
