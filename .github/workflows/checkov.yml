@@ -11,12 +11,8 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build image
-      run: docker build -t nginx_src .
+      run: docker image build -t nginxinc/nginx-unprivileged:alpine3.22-perl
     - name: Run Checkov vulnerability scanner for the backend
-      uses: nginxinc/nginx-unprivileged@alpine3.22-perl
-      with:
-        scan-type: '-f backend/Dockerfile'
+      run: checkov -f backend/Dockerfile
     - name: Run Checkov vulnerability scanner for the frontend
-      uses: nginxinc/nginx-unprivileged@alpine3.22-perl
-      with:
-        scan-type: '-f frontend/Dockerfile'
+      run: checkov -f frontend/Dockerfile
