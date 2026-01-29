@@ -10,11 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - name: Build backend docker
-      run: backend/Dockerfile .
+    - name: Build and push Docker images
+      uses: docker/build-push-action@v6.18.0
+      with:
+        context: ./backend
     - name: Run Checkov vulnerability scanner for the backend
-      run: checkov -f backend/Dockerfile
+      run: checkov -f ./backend/Dockerfile
     - name: Build frontend docker
       run: frontend/Dockerfile .
     - name: Run Checkov vulnerability scanner for the frontend
-      run: checkov -f frontend/Dockerfile
+      run: checkov -f ./frontend/Dockerfile
