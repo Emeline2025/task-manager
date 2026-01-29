@@ -11,10 +11,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build backend docker
-      run: ../../backend/Dockerfile .
+      run: backend/Dockerfile .
     - name: Run Checkov vulnerability scanner for the backend
-      run: checkov -f ../../backend/Dockerfile
+      run: checkov -f backend/Dockerfile
     - name: Build frontend docker
-      run: ../../frontend/Dockerfile .
+      run: frontend/Dockerfile .
     - name: Run Checkov vulnerability scanner for the frontend
-      run: checkov -f ../../frontend/Dockerfile
+      run: checkov -f frontend/Dockerfile
