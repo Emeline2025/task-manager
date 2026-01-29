@@ -1,4 +1,5 @@
 site_name: Documentation du projet task-manager
+site_url: http://localhost:8000
 site_description: Documentation technique et fonctionnelle du projet Task Manager
 
 theme:
