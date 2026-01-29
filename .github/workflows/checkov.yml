@@ -13,6 +13,6 @@ jobs:
     - name: Build image
       run: docker image build -t nginxinc/nginx-unprivileged:alpine3.22-perl .
     - name: Run Checkov vulnerability scanner for the backend
-      run: checkov -f backend/Dockerfile
+      run: checkov -f ../../backend/Dockerfile
     - name: Run Checkov vulnerability scanner for the frontend
-      run: checkov -f frontend/Dockerfile
+      run: checkov -f ../../frontend/Dockerfile
